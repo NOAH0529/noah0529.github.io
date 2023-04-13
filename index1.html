@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index1</title>
+    <style>
+        body {
+            background-image: url(resources/bg1.jpg);
+        }
+
+        .glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .box1 {
+            position: absolute;
+            height: 600px;
+            width: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .imgbox {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 350px;
+            width: 350px;
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            border-radius: 20px;
+            margin: 15% auto;
+        }
+
+        .imgbox img {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .audio-player {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            padding: 10px;
+            margin: -5% auto;
+        }
+
+        .play-pause {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            cursor: pointer;
+        }
+
+        .play-pause.playing {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glass box1">
+        <div class="imgbox"><img src="resources/manlok.gif"></div>
+        <div class="audio-player">
+            <audio id="audio" src="resources/nkwmanlok.mp3"></audio>
+            <div class="play-pause" id="play-pause"></div>
+        </div>
+    </div>
+
+
+    <script>
+        var audio = document.getElementById("audio");
+        var playPause = document.getElementById("play-pause");
+
+        playPause.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                playPause.classList.add("playing");
+            } else {
+                audio.pause();
+                playPause.classList.remove("playing");
+            }
+        });
+    </script>
+</body>
+
+</html>
